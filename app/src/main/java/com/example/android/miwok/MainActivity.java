@@ -29,28 +29,42 @@ public class MainActivity extends AppCompatActivity {
 
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
-        NumbersClickListener clickListener = new NumbersClickListener();
 
         //Set a clicklistener on that View
-        TextView numbers = (TextView)findViewById(R.id.numbers);
-    }
-    public void openPhrasesList(View view)
-    {
-        //TODO Write Code and Stuff
-        Intent intent = new Intent(this, PhrasesActivity.class);
-        startActivity(intent);
+        final TextView numbers = findViewById(R.id.numbers);
+        final TextView phrases = findViewById(R.id.phrases);
+        final TextView family = findViewById(R.id.family);
+        final TextView colors = findViewById(R.id.colors);
+        //Set a clicklistener on that view
+        numbers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent numbersIntent = new Intent(MainActivity.this, NumbersActivity.class);
+                startActivity(numbersIntent);
+            }
+        });
+        phrases.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent phrasesIntent = new Intent(MainActivity.this, PhrasesActivity.class);
+                startActivity(phrasesIntent);
+            }
+        });
+        family.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent familyIntent = new Intent(MainActivity.this, FamilyActivity.class);
+                startActivity(familyIntent);
 
+            }
+        });
+        colors.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent colorsIntent = new Intent(MainActivity.this, ColorsActivity.class);
+                startActivity(colorsIntent);
+            }
+        });
     }
-    public void openColorsList(View view){
-        Intent intent = new Intent(this, ColorsActivity.class);
-        startActivity(intent);
-    }
-    public void openFamilyList(View view){
-        Intent intent = new Intent(this, FamilyActivity.class);
-        startActivity(intent);
-    }
-    public void openNumbersList(View view){
-        Intent intent = new Intent(this, NumbersActivity.class);
-        startActivity(intent);
-    }
+
 }
