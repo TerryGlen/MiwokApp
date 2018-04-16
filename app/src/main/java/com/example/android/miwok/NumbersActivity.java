@@ -19,20 +19,23 @@ public class NumbersActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_numbers);
+        setContentView(R.layout.word_list);
 
-        ArrayList<String> words = new ArrayList<String>();
-        words.add("one");
-        words.add("two");
-        words.add("three");
-        words.add("four");
-        words.add("five");
-        words.add("six");
-        words.add("seven");
-        words.add("eight");
-        words.add("nine");
-        words.add("ten");
-        ArrayAdapter<String>    itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, words);
+        ArrayList<Word> words = new ArrayList<>();
+
+        words.add(new Word("one", "lutti"));
+        words.add(new Word("two" , "otiiko"));
+        words.add(new Word( "three", "tolookosu"));
+        words.add(new Word("four", "oyyisa"));
+        words.add(new Word("five" , "massokka"));
+        words.add(new Word( "six", "temmokka"));
+        words.add(new Word("seven" , "kenekaku"));
+        words.add(new Word( "eight", "kawinta"));
+        words.add(new Word("nine" , "wo'e"));
+        words.add(new Word( "ten", "na'aacha"));
+
+
+        WordAdapter itemsAdapter = new WordAdapter(this,words);
         ListView listView = findViewById(R.id.list);
         listView.setAdapter(itemsAdapter);
 
